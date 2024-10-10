@@ -1,0 +1,31 @@
+<div class="container">
+    <div>
+    <h2>Modifier un Etudiant :</h2>
+    </div>
+    <form >
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >Nom :</label>
+        <input type="text" [(ngModel)]="currentEtudiant.nom"name="nom" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >Prenom :</label>
+        <input type="text"[(ngModel)]= "currentEtudiant.prenom" name="prenom" class="form-control">
+        </div>
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label >CIN :</label>
+        <input type="number" [(ngModel)]= "currentEtudiant.cin"name="cin" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date de naissance :</label>
+        <input type="date" [ngModel]= "currentEtudiant.dateNaissance | date: 'yyy-MM-dd'  " name="dateNaissance" class="form-control"  (ngModelChange)="currentEtudiant.dateNaissance= $event" 
+        class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >Classe :</label>
+        <input type="text" [(ngModel)]= "currentEtudiant.classe "name="classe" class="form-control">
+        </div>
+    <div class="mt-2">
+<button type="submit" (click)="updateEtud()"class="btn btn-success">Modifier</button>
+    </div>
+            </form>
+</div>
