@@ -23,6 +23,15 @@
         <label >Classe :</label>
         <input type="text" [(ngModel)]= "newEtudiant.classe "name="classe" class="form-control">
         </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Institut</label>
+            <select class="form-control form-control-lg" id="nomI" name="nomI"
+            [(ngModel)]="newNom">
+             <option *ngFor="let ins of institut" [value]="ins.nomI" >
+             {{ins.nomI}}
+            </option>
+            </select>
+            </div>
     <div class="mt-2">
 <button type="submit" (click)="addEtudiant()"class="btn btn-success">Ajouter</button>
     </div>
