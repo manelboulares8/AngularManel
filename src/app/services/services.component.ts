@@ -3,7 +3,7 @@ import { Etudiant } from '../model/etudiant.model';
 import { Injectable } from '@angular/core';
 import { Institut } from '../model/institut.model';
 @Injectable({
-  providedIn: 'root', // Makes it available throughout the app
+ providedIn: 'root', // Makes it available throughout the app
 })
 @Component({
   selector: 'app-services',
@@ -11,20 +11,32 @@ import { Institut } from '../model/institut.model';
   styleUrl: './services.component.css'
 })
 export class ServicesComponent implements OnInit{
+  /*rechercherParInstitut(idI: number): Etudiant[] {
+    const institut = this.institut.find(ins => ins.idI === idI);
+  if (institut) {
+    return this.etudiant.filter(etud => etud.institut?.nomI === institut.nomI);
+  }
+  // Si aucun institut ne correspond, retourner une liste vide
+  return [];
+  }*/
+  rechercherParInstitut(idI: number): Etudiant[] {
+    return this.etudiant.filter(e => e.institut?.idI === idI);
+  }
+  
   etudiant :Etudiant[];
   etudiantt! : Etudiant;
   institut : Institut[];
   constructor() {
-  this.institut = [ {nomI : "ISETN", localisation: "Nabeul",numTlf :58678234},
-    {nomI :"ISETK" ,localisation :"Kelibia",numTlf:53444234},
-    {nomI :"ISETR" ,localisation :"Rades",numTlf:98345222}
+  this.institut = [ {idI:1,nomI : "ISETN", localisation: "Nabeul",numTlf :58678234},
+    {idI :2,nomI :"ISETK" ,localisation :"Kelibia",numTlf:53444234},
+    {idI :3,nomI :"ISETR" ,localisation :"Rades",numTlf:98345222}
   
                    ];
   
     this.etudiant= [
-      { nom:"Boulares", prenom:"Manel", cin:14444444, dateNaissance: new Date("01/10/2004"), classe:"DSI 23" , institut :{nomI :"ISETN" ,localisation :"Nabeul",numTlf:58678234}},
-      { nom:"Jemai", prenom:"Ghofrane", cin:14444441, dateNaissance: new Date("11/11/2004"), classe:"DSI 22",institut :{nomI :"ISETK" ,localisation :"Kelibia",numTlf:53444234}},
-      { nom:"Guelbi", prenom:"Farah", cin:14444442, dateNaissance: new Date("06/03/2004"), classe:"MDW 21",institut :{nomI :"ISETR" ,localisation :"Rades",numTlf:98345222}},
+      { nom:"Boulares", prenom:"Manel", cin:14444444, dateNaissance: new Date("01/10/2004"), classe:"DSI 23" , institut :{idI:1,nomI :"ISETN" ,localisation :"Nabeul",numTlf:58678234},email :'boularesmanel@gmail.com'},
+      { nom:"Jemai", prenom:"Ghofrane", cin:14444441, dateNaissance: new Date("11/11/2004"), classe:"DSI 22",institut :{idI:2,nomI :"ISETK" ,localisation :"Kelibia",numTlf:53444234},email :'jemaighofrane@gmail.com'},
+      { nom:"Guelbi", prenom:"Farah", cin:14444442, dateNaissance: new Date("06/03/2004"), classe:"MDW 21",institut :{idI:3,nomI :"ISETR" ,localisation :"Rades",numTlf:98345222},email :"guelbifarah@gmail.com"},
   
        ];
       
@@ -47,7 +59,7 @@ export class ServicesComponent implements OnInit{
     }
     //ou Bien
     /* this.produits.forEach((cur, index) => {
-    if(prod.idProduit === cur.idProduit) {
+    if(prod.idIProduit === cur.idIProduit) {
     this.produits.splice(index, 1);
     }
     }); */

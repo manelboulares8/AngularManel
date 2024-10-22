@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchFilterPipe } from './search-filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
 import { AddEtudiantComponent } from './add-etudiant/add-etudiant.component';
 import { ServicesComponent } from './services/services.component';
 import { UpdateEtudComponent } from './update-etud/update-etud.component';
+import { CommonModule } from '@angular/common';
+import {  NO_ERRORS_SCHEMA } from '@angular/core';
+import { RechercheParInstitutComponent } from './recherche-par-institut/recherche-par-institut.component';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+
 
 @NgModule({
   declarations: [
@@ -15,16 +20,23 @@ import { UpdateEtudComponent } from './update-etud/update-etud.component';
     EtudiantComponent,
     AddEtudiantComponent,
     ServicesComponent,
-    UpdateEtudComponent
+    UpdateEtudComponent,
+    SearchFilterPipe,
+    RechercheParInstitutComponent,
+    RechercheParNomComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA] 
 })
 export class AppModule { }

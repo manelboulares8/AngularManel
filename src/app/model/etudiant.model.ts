@@ -7,4 +7,6 @@ export class Etudiant {
     dateNaissance?: Date ;
     classe? :string;
     institut? : Institut;
+    email! :string;
+    //enabled! : boolean;
     }

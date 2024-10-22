@@ -20,10 +20,15 @@ export class RechercheParInstitutComponent implements OnInit {
   ngOnInit(): void {
     
     this.instituts=this.serviceComponent.listeInstituts();
-    this.etudiant=[];
+    this.etudiant=this.serviceComponent.listeEtudiant();
   }
   onChange(){
     console.log(this.nomInstitut);
-    this.etudiant=this.serviceComponent.rechercherParInstitut(this.idI);
+    const selectedIdI = Number(this.idI);
+    console.log('ID sélectionné après conversion:', selectedIdI);
+    
+    this.etudiant=this.serviceComponent.rechercherParInstitut(selectedIdI);
+    console.log('Étudiants après filtrage:', this.etudiant);
+
   }
 }

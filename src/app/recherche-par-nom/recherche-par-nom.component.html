@@ -1,13 +1,7 @@
 <div class="container">
-    <!--<form class="form-inline">
-    <div class="form-group mx-sm-3 mb-2 mt-2 ">
-    <label>Nom de l'étudiant</label>
-    <input type="text" class="form-control" [(ngModel)]="nom" name="nom" class="form-control">
-    <button type="submit" (click)="rechercherEtud()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
-    </div>
-    </form>-->
-    <!--
-   <form class="form-inline">
+    
+   
+  <!--- <form class="form-inline">
 <div class="form-group mx-sm-3 mb-2 mt-2 ">
 <label>Nom de l'étudiant en tapant :</label>
 <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
@@ -36,6 +30,8 @@
         </thead>
             
             <tbody *ngFor="let etudiant of etudiant | searchFilter:searchTerm">
+              <!---  <tbody *ngFor="let etudiant of etudiant ">-->
+
 
                 <tr >
                 <td>{{etudiant.nom}}</td>

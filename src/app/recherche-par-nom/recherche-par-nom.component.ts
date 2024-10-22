@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Etudiant } from '../model/etudiant.model';
 import { ServicesComponent } from '../services/services.component';
-
+import { SearchFilterPipe } from '../search-filter.pipe';
 @Component({
   selector: 'app-recherche-par-nom',
   templateUrl: './recherche-par-nom.component.html',
