@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import {  NO_ERRORS_SCHEMA } from '@angular/core';
 import { RechercheParInstitutComponent } from './recherche-par-institut/recherche-par-institut.component';
 import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+import { LoginComponent } from './login/login.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.
     UpdateEtudComponent,
     SearchFilterPipe,
     RechercheParInstitutComponent,
-    RechercheParNomComponent
+    RechercheParNomComponent,
+    LoginComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

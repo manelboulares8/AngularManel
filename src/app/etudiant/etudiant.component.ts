@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Etudiant } from '../model/etudiant.model';
 import { ServicesComponent } from '../services/services.component';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-etudiant',
   templateUrl: './etudiant.component.html',
@@ -8,7 +9,7 @@ import { ServicesComponent } from '../services/services.component';
 })
 export class EtudiantComponent implements OnInit {
   etudiant :Etudiant[];
-  constructor (private serviceComponent : ServicesComponent ){
+  constructor (private serviceComponent : ServicesComponent ,public authService: AuthService){
     this.etudiant = serviceComponent.listeEtudiant();
   }
   ngOnInit(): void {

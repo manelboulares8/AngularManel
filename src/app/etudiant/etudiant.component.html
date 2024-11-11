@@ -25,8 +25,8 @@
     <td>{{etudiant.institut?.nomI}}</td>
     <td>{{etudiant.email}}</td>
 
-    <td><a class="btn btn-danger" (click)="supprimerEtudiant(etudiant)">Supprimer</a></td>
-    <td><a class="btn btn-success" [routerLink]="['/updateEtud',etudiant.cin]">Modifier</a></td>
+    <td><a class="btn btn-danger" (click)="supprimerEtudiant(etudiant)"  *ngIf="authService.isAdmin()">Supprimer</a></td>
+    <td><a class="btn btn-success" [routerLink]="['/updateEtud',etudiant.cin]"  *ngIf="authService.isAdmin()">Modifier</a></td>
 
     </tr>
     </tbody>
