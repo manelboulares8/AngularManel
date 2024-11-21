@@ -19,8 +19,7 @@ export class RechercheParInstitutComponent implements OnInit {
   }
   ngOnInit(): void {
     
-    this.instituts=this.serviceComponent.listeInstituts();
-    this.etudiant=this.serviceComponent.listeEtudiant();
+   // this.etudiant=this.serviceComponent.listeEtudiant();
   }
   onChange(){
     console.log(this.nomInstitut);

@@ -6,7 +6,9 @@
     <tr>
     <th>Liste des étudiants </th>
     </tr>
-    <tr><th>Nom</th>
+    <tr>
+    <th>ID</th>
+    <th>Nom</th>
     <th>Prénom</th>
     <th>CIN</th>
     <th>Date de naissance</th>
@@ -17,6 +19,7 @@
     </thead>
     <tbody *ngFor="let etudiant of etudiant">
     <tr >
+    <td>{{etudiant.id}}</td>
     <td>{{etudiant.nom}}</td>
     <td>{{etudiant.prenom}}</td>
     <td>{{etudiant.cin}}</td>

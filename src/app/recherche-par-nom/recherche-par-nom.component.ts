@@ -20,7 +20,7 @@ export class RechercheParNomComponent implements OnInit {
       this.allEtudiants = etu;
       });
       */
-      this.etudiant=this.serviceComponent.listeEtudiant() ;
+    //  this.etudiant=this.serviceComponent.listeEtudiant() ;
       this.allEtudiants=this.etudiant;
   }
  

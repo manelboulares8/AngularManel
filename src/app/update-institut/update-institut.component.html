@@ -1,0 +1,28 @@
+<form>
+    <div [hidden]="ajout">
+        <label>ID institut
+        </label>
+        <input type="text" [(ngModel)]="institut.idI" name="idI" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom institut</label>
+        <input type="text" [(ngModel)]="institut.nomI" name="nomI" class="form-control"
+            placeholder="Entrez le nom de l'institut...">
+    </div>
+    <div>
+        <label>Localisation
+        </label>
+        <input type="text" [(ngModel)]="institut.localisation" name="localisation" class="form-control w-25">
+    </div>
+    <div>
+        <div>
+            <label>Numéro de téléphone
+            </label>
+            <input type="text" [(ngModel)]="institut.numTlf" name="numTlf" class="form-control w-25">
+        </div>
+        <div>
+            <div class="mt-2">
+                <button type="submit" [disabled]="!categorie.nomI" class="btn btn-success"
+                    (click)="saveInstitut()">Ajouter</button>
+            </div>
+</form>

@@ -8,6 +8,8 @@ import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { EtudiantGuard } from './etudiants.guard';
+import { ListeInstitutComponent } from './liste-institut/liste-institut.component';
+import { UpdateInstitutComponent } from './update-institut/update-institut.component';
 const routes: Routes = [
   {path :"etudiant", component :EtudiantComponent},
   {path :"add-etudiant", component :AddEtudiantComponent,  canActivate:[EtudiantGuard]},
@@ -17,8 +19,9 @@ const routes: Routes = [
    {path :"recherche-par-nom",component:RechercheParNomComponent},
    {path: 'login', component: LoginComponent},
    {path:  'forbidden', component: ForbiddenComponent}, 
-   { path: 'app-forbidden', component: ForbiddenComponent }
-
+   { path: 'app-forbidden', component: ForbiddenComponent },
+   {path :'liste-institut', component :ListeInstitutComponent},
+   {path :'update-institut', component :UpdateInstitutComponent},
 
 
 

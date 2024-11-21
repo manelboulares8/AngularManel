@@ -16,6 +16,7 @@ export class AddEtudiantComponent implements OnInit {
   newNom! : string;
   newInstitut! : Institut;
   myForm! :FormGroup;
+  newIdI! :number;
 
 
   constructor(private serviceComponent :ServicesComponent,private router:Router,private formBuilder :FormBuilder){
@@ -23,8 +24,23 @@ export class AddEtudiantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.institut =this.serviceComponent.listeInstituts();
+  /* this.institut =this.serviceComponent.listeInstituts();
+    this.serviceComponent.listeInstituts().subscribe(ins=>{this.institut=ins._embedded.instituts;
+    console.log(ins);});*/
+
+    this.serviceComponent.listeInstituts().subscribe(ins => {
+      // Vous accédez à l'array des instituts dans la réponse
+      this.institut = ins._embedded.instituts;
+      console.log(this.institut); // Afficher la liste dans la console pour déboguer
+    });
+    
+   
+
+
+  
+
     this.myForm = this.formBuilder.group({
+      id:['',[Validators.required,]],
 
       nom : ['', [Validators.required,Validators.minLength(3)]],
       prenom :['', [Validators.required, Validators.minLength(3)]],
@@ -48,7 +64,7 @@ export class AddEtudiantComponent implements OnInit {
       };
     }
     
-  addEtudiant(){
+  /*addEtudiant(){
     this.newInstitut =this.serviceComponent.consulterInstitut(this.newNom);
     this.newEtudiant.institut = this.newInstitut;
 
@@ -56,5 +72,11 @@ export class AddEtudiantComponent implements OnInit {
     this.router.navigate(["etudiant"]);
     
     
-  }
+  }*/
+ addEtudiant(){
+  this.serviceComponent.ajouterEtudiant(this.newEtudiant).subscribe(etud=> {console.log(etud);
+    this.router.navigate(['etudiant']);
+  })
+ }
+ 
 }

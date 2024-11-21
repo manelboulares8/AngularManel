@@ -3,6 +3,11 @@
     <h2>Ajouter un Etudiant :</h2>
     </div>
     <form [formGroup]="myForm" >
+        <div  class="form-group">
+            <label >ID :</label>
+            <input type="text" [(ngModel)]="newEtudiant.id"name="id" class="form-control" formControlName="id">
+            </div>
+            <span *ngIf="myForm.controls['id'].hasError('required') && myForm.controls['id'].touched" class="text-danger">Ce champ est obligatoire </span>
         <div class="form-group">
         <label >Nom :</label>
         <input type="text" [(ngModel)]="newEtudiant.nom"name="nom" class="form-control" formControlName="nom">

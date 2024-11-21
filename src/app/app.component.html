@@ -25,9 +25,19 @@
                     <a class="dropdown-item" href="#">Lister</a>
                     <a class="dropdown-item" href="recherche-par-institut/">Recherche par institut</a>
                     <a class="dropdown-item" href="recherche-par-nom/">Recherche par nom</a>
+                    <a class="dropdown-item" routerLink="/liste-institut" >Gestion des instituts</a>
+
 
                 </div>
             </li>
+            <!-- <li class="nav-item ">
+                <a class="nav-link " routerLink="/liste-institut"  *ngIf="authService.isAdmin()">
+                    Institut
+                </a>
+
+
+
+            </li> -->
         </ul>
         <ul class="navbar-nav ml-auto">
             <li> <a class="nav-link">{{authService.loggedUser}}</a></li>

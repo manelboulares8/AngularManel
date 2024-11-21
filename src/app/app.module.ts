@@ -14,6 +14,10 @@ import { RechercheParInstitutComponent } from './recherche-par-institut/recherch
 import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { provideHttpClient } from '@angular/common/http';
+
+import { ListeInstitutComponent } from './liste-institut/liste-institut.component';
+import { UpdateInstitutComponent } from './update-institut/update-institut.component';
 
 
 @NgModule({
@@ -27,17 +31,20 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     RechercheParInstitutComponent,
     RechercheParNomComponent,
     LoginComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    ListeInstitutComponent,
+    UpdateInstitutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [
     provideClientHydration(),
+    provideHttpClient()
     
   ],
   bootstrap: [AppComponent],
