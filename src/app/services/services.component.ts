@@ -127,8 +127,8 @@ export class ServicesComponent implements OnInit{
       updateEtudiant(prod :Etudiant) : Observable<Etudiant>
       {
       //return this.http.put<Etudiant>(this.apiURL, prod, httpOptions);
-      const url = `${this.apiURL}/${prod.id}`; // Inclut l'ID dans l'URL
-  return this.http.put<Etudiant>(url, prod, httpOptions);
+    //  const url = `${this.apiURL}/${prod.id}`; // Inclut l'ID dans l'URL
+  return this.http.put<Etudiant>(this.apiURL, prod, httpOptions);
       }
 
 
@@ -147,12 +147,12 @@ export class ServicesComponent implements OnInit{
 */
 
      
-      //consulterInstitut(nomI :string): Institut{
-        //return this.institut.find(ins => ins.nomI == nomI)!;
-        //}
-        consulterInstitut(id: number): Observable<Institut> {
-          return this.http.get<Institut>(`${this.apiURLIns}/${id}`);
+      consulterInstitut(id :number): Institut{
+        return this.institut.find(ins => ins.idI== id)!;
         }
+       /* consulterInstitut(id: number): Observable<Institut> {
+          return this.http.get<Institut>(`${this.apiURLIns}/${id}`);
+        }*/
         
 
 

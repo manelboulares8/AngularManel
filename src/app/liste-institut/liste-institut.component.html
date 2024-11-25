@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="col-sm-4 col-md-4 col-lg-4 mb-4"> 
+ <div class="col-sm-4 col-md-4 col-lg-4 mb-4"> 
         <app-update-institut
         [institut]="updatedInstitut"
         (institutUpdated)="institutUpdated($event)"
@@ -27,7 +27,7 @@
               
               <!-- <td><a class="btn btn-success"  (click)="updateInstitut(institut)">Modifier</a></td> -->
               <button type="submit" [disabled]="!institut.nomI" class="btn btn-success"
-              (click)="saveInstitut()" >{{ajout ? 'Ajouter' : 'Modifier'}}
+              (click)="updateInstitut(institut)" >Editer
               </button>
             </tr>
           </tbody>

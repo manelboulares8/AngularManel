@@ -7,7 +7,7 @@ import { InstitutWrapper } from '../model/institutWrapped.model';
 @Component({
   selector: 'app-liste-institut',
   templateUrl: './liste-institut.component.html',
- // styleUrl: './liste-institut.component.css'
+  styleUrl: './liste-institut.component.css'
 })
 export class ListeInstitutComponent implements OnInit{
  

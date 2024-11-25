@@ -218,19 +218,15 @@ this.myForm = this.formBuilder.group({
   } );
 const id = this.activatedRoute.snapshot.params['id']; // Récupérer l'ID de la route
     //this.newEtudiant = this.EtunewEtudiantService.consulterEtunewEtudiant(id); // Remplir `newEtudiant` avec les données récupérées
-    this.servicesComponent.consulterEtud(id).subscribe({
-      next: (etudiant) => {
-        this.newEtudiant = etudiant; // Remplir `newEtudiant` avec les données récupérées
-        this.myForm.patchValue(this.newEtudiant); // Mettre à jour le formulaire
-      },
-      error: (err) => {
-        console.error('Erreur lors du chargement du médicament', err);
-      },
-    });
+    this.servicesComponent.consulterEtud(id).subscribe(
+      etudiant => {
+        this.currentEtudiant = etudiant;
+        this.updatedInsI=this.currentEtudiant.institut?.idI;}); // Remplir `newEtudiant` avec les données récupérées
+      }
   
    
    // this.myForm.patchValue(this.newEtudiant);
-}
+
 
 cinLengthValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
@@ -275,27 +271,14 @@ updateEtud(){
     this.servicesComponent.updateEtudiant(this.currentEtudiant).subscribe(prod => {
  this.router.navigate(['etudiant']); }
  );*/
+ this.currentEtudiant.institut=this.institut.find(ins=>ins.idI==this.updatedInsI)!;
+ this.servicesComponent.updateEtudiant(this.currentEtudiant).subscribe(etudiant=>{
+  this.router.navigate(['etudiant']);}
+ );
 
- if (this.myForm.valid) {
-  // Mise à jour des valeurs de `newEtudiant` avec les données du formulaire
-  this.newEtudiant = { ...this.newEtudiant, ...this.myForm.value };
-
-  console.log("Médicament à modifier : ", this.newEtudiant);
-
-  // Appel de la méthode pour modifier le médicament
-  this.servicesComponent.updateEtudiant(this.newEtudiant).subscribe({
-    next: (response) => {
-      console.log('etudiant modifié avec succès', response);
-
-      // Redirection après la modification
-      this.router.navigate(['etudiant']);
-    },
-    error: (err) => {
-      console.error('Erreur lors de la modification du etudiant ', err);
-    },
-  });
+ 
 }
-}}
+}
 
   
 

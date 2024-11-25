@@ -74,6 +74,7 @@ export class AddEtudiantComponent implements OnInit {
     
   }*/
  addEtudiant(){
+  this.newEtudiant.institut=this.institut.find(ins=>ins.idI==this.newIdI)!;
   this.serviceComponent.ajouterEtudiant(this.newEtudiant).subscribe(etud=> {console.log(etud);
     this.router.navigate(['etudiant']);
   })
