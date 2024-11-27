@@ -116,7 +116,7 @@
       </div>
       <div class="form-group">
         <label>Date de naissance :</label>
-        <input type="date" class="form-control" formControlName="dateNaissance" [(ngModml)]="currentEtudiant.dateNaissance">
+        <input type="date" class="form-control" formControlName="dateNaissance" [(ngModel)]="currentEtudiant.dateNaissance">
         <span *ngIf="myForm.controls['dateNaissance'].hasError('required') && myForm.controls['dateNaissance'].touched" class="text-danger">
           La date de naissance est obligatoire
         </span>
@@ -131,7 +131,7 @@
       <div class="form-group">
         <label>Institut :</label>
         <select class="form-control form-control-lg" id="nomI" formControlName="institut" [(ngModel)]="updatedInsI">
-          <option *ngFor="let ins of institut" [value]="ins.nomI" >
+          <option *ngFor="let ins of institut" [value]="ins.idI" >
             {{ ins.nomI }}
           </option>
         </select>
@@ -141,7 +141,7 @@
       </div>
       <div class="form-group">
         <label>Email :</label>
-        <input type="text" class="form-control" formControlName="email">
+        <input type="text" class="form-control" formControlName="email" [(ngModel)]="currentEtudiant.email">
         <span *ngIf="myForm.controls['email'].hasError('required') && myForm.controls['email'].touched" class="text-danger">
           Email est obligatoire
         </span>

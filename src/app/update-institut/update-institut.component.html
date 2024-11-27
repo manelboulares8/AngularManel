@@ -14,15 +14,19 @@
         </label>
         <input type="text" [(ngModel)]="institut.localisation" name="localisation" class="form-control w-25">
     </div>
-    <div>
+  
         <div>
             <label>Numéro de téléphone
             </label>
             <input type="text" [(ngModel)]="institut.numTlf" name="numTlf" class="form-control w-25">
         </div>
-        <div>
-            <div class="mt-2">
-                <button type="submit" [disabled]="!categorie.nomI" class="btn btn-success"
+        
+            <div class="mt-2" *ngIf ="ajout">
+                <button type="submit" [disabled]="!institut.nomI" class="btn btn-success"
                     (click)="saveInstitut()">Ajouter</button>
+            </div>
+            <div class="mt-2"  *ngIf ="!ajout">
+                <button type="submit" [disabled]="!institut.nomI" class="btn btn-success"
+                    (click)="saveInstitut()">Editer</button>
             </div>
 </form>

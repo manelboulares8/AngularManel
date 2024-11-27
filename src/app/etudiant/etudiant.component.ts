@@ -34,6 +34,7 @@ export class EtudiantComponent implements OnInit {
     this.serviceComponent.listeEtudiant().subscribe(prods => {
     console.log(prods);
     this.etudiant = prods;
+    console.log("etudiant!!!!!!!!!!",this.etudiant);
     });
     }
     

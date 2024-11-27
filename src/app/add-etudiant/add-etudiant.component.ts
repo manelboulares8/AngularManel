@@ -31,7 +31,7 @@ export class AddEtudiantComponent implements OnInit {
     this.serviceComponent.listeInstituts().subscribe(ins => {
       // Vous accédez à l'array des instituts dans la réponse
       this.institut = ins._embedded.instituts;
-      console.log(this.institut); // Afficher la liste dans la console pour déboguer
+      console.log("institut",this.institut); // Afficher la liste dans la console pour déboguer
     });
     
    
@@ -74,6 +74,7 @@ export class AddEtudiantComponent implements OnInit {
     
   }*/
  addEtudiant(){
+console.log("!!!!!!!!!!!!!!!!!",this.myForm.value.newIdI)
   this.newEtudiant.institut=this.institut.find(ins=>ins.idI==this.newIdI)!;
   this.serviceComponent.ajouterEtudiant(this.newEtudiant).subscribe(etud=> {console.log(etud);
     this.router.navigate(['etudiant']);

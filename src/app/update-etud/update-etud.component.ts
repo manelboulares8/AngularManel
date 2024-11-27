@@ -87,7 +87,7 @@ import { InstitutWrapper } from '../model/institutWrapped.model';
 export class UpdateEtudComponent implements OnInit{
   currentEtudiant =new Etudiant();
   institut! :Institut[];
-  updatedInsI: number | undefined;
+  updatedInsI!:any;
   myForm! :FormGroup;
   newEtudiant =new Etudiant();
   constructor (private activatedRoute: ActivatedRoute,
@@ -216,13 +216,24 @@ this.myForm = this.formBuilder.group({
 
   email : ['', [Validators.required, Validators.email]],
   } );
-const id = this.activatedRoute.snapshot.params['id']; // Récupérer l'ID de la route
+ // Récupérer l'ID de la route
     //this.newEtudiant = this.EtunewEtudiantService.consulterEtunewEtudiant(id); // Remplir `newEtudiant` avec les données récupérées
-    this.servicesComponent.consulterEtud(id).subscribe(
+    this.servicesComponent.consulterEtud(this.activatedRoute.snapshot.params['id'] ).subscribe(
       etudiant => {
         this.currentEtudiant = etudiant;
-        this.updatedInsI=this.currentEtudiant.institut?.idI;}); // Remplir `newEtudiant` avec les données récupérées
-      }
+        this.updatedInsI=this.currentEtudiant.institut?.idI;
+       console.log('!!!!!!!!!!!!!mmmmmm!!!!',this.currentEtudiant);
+       console.log('!!!!!!!!!!!!!mmmmmm!!!!',this.updatedInsI);
+
+       
+      } )
+      this.servicesComponent.listeInstituts().subscribe(ins => {
+        // Vous accédez à l'array des instituts dans la réponse
+        this.institut = ins._embedded.instituts;
+        console.log("institut",this.institut); // Afficher la liste dans la console pour déboguer
+      });
+    }// Remplir `newEtudiant` avec les données récupérées
+      
   
    
    // this.myForm.patchValue(this.newEtudiant);
@@ -261,22 +272,14 @@ this.router.navigate(["etudiant"]);
 updateEtud(){
 
 
-  //hedheya hoowa eli badaltou ekkhr haja kbal la njarab code pharmaplus: 
-
- /* this.servicesComponent.updateEtudiant(this.currentEtudiant).subscribe(prod => {
-    this.router.navigate(['etudiants']); }
-    );*/
-    /*
-    this.currentEtudiant.institut = this.institut.find(cat => cat.idI == this.updatedInsI)!;
-    this.servicesComponent.updateEtudiant(this.currentEtudiant).subscribe(prod => {
- this.router.navigate(['etudiant']); }
- );*/
+  
  this.currentEtudiant.institut=this.institut.find(ins=>ins.idI==this.updatedInsI)!;
  this.servicesComponent.updateEtudiant(this.currentEtudiant).subscribe(etudiant=>{
   this.router.navigate(['etudiant']);}
  );
 
  
+
 }
 }
 

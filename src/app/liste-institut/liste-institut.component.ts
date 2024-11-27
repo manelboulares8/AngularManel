@@ -10,7 +10,7 @@ import { InstitutWrapper } from '../model/institutWrapped.model';
   styleUrl: './liste-institut.component.css'
 })
 export class ListeInstitutComponent implements OnInit{
- 
+ public categorieUpdated!:any
 
 instituts!:Institut[];  // Liste des types
   updatedInstitut: Institut = { idI: 0, nomI: "",localisation:"",numTlf:0 };  // Type à mettre à jour

@@ -167,7 +167,7 @@ export class ServicesComponent implements OnInit{
           });
         }*/
        
-          ajouterInstitut( cat: Institut):Observable<Institut>{
+          ajouterInstitut(cat: Institut):Observable<Institut>{
             return this.http.post<Institut>(this.apiURLIns, cat, httpOptions);
             }
 }
