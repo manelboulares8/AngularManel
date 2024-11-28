@@ -11,6 +11,7 @@ export class RechercheParNomComponent implements OnInit {
   allEtudiants! : Etudiant[];
   searchTerm!: string;
   etudiant! :Etudiant[];
+  nom!: string;
   constructor(private serviceComponent : ServicesComponent){
 
   }
@@ -26,6 +27,13 @@ export class RechercheParNomComponent implements OnInit {
  
   onKeyUp(filterText : string){
     this.etudiant = this.allEtudiants.filter(item =>item.nom!.toLowerCase().includes(filterText.toLowerCase()));
- 
+  
+    
 }
+rechercherEtud(){
+  this.serviceComponent.rechercherParNom(this.nom).
+  subscribe(prods => {
+  this.etudiant = prods;
+  console.log(prods)});
+  }
 }

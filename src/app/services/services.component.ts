@@ -32,9 +32,9 @@ export class ServicesComponent implements OnInit{
   return [];
   }*/
   apiURL: string = 'http://localhost:8082/etudiant2/api';
-  rechercherParInstitut(idI: number): Etudiant[] {
+ /* rechercherParInstitut(idI: number): Etudiant[] {
     return this.etudiant.filter(e => e.institut?.idI === idI);
-  }
+  }*/
   
   etudiant!:Etudiant[];
   etudiantt! : Etudiant;
@@ -170,4 +170,15 @@ export class ServicesComponent implements OnInit{
           ajouterInstitut(cat: Institut):Observable<Institut>{
             return this.http.post<Institut>(this.apiURLIns, cat, httpOptions);
             }
+
+            rechercherParNom(nom: string):Observable< Etudiant[]> {
+              const url = `${this.apiURL}/etud/${nom}`;
+              return this.http.get<Etudiant[]>(url);
+              }
+
+              rechercherParInstitut(idI: number):Observable<Etudiant[]> {
+                const url = `${this.apiURL}/etudsIns/${idI}`;
+                return this.http.get<Etudiant[]>(url);
+                }
+              
 }
